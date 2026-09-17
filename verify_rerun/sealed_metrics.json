@@ -1,0 +1,15 @@
+{
+  "method": "softmax-weighted Pearson \u03c6 on UserKNN C_CF (k=200, \u03c4=1)",
+  "protocol": "TRAIN_EXTERNAL \u2192 sealed test.txt",
+  "overall": {
+    "NDCG@20": 0.21510094169360347,
+    "Recall@20": 0.24849338337661214,
+    "MRR": 0.3071199732572307,
+    "n_users": 23529.0
+  },
+  "frozen_reference_NDCG@20": 0.21510094169360347,
+  "abs_diff_vs_frozen": 0.0,
+  "elapsed_sec": 660.5837180614471,
+  "official_tables": false,
+  "thesis_follow_up": true
+}

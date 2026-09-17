@@ -1,0 +1,12 @@
+{
+  "protocol": "TRAIN_EXTERNAL = model_train \u222a valid",
+  "n_users_matrix": 23566,
+  "n_items": 48123,
+  "n_train_external_interactions": 1235905,
+  "n_eval_users_with_test_positive": 23529,
+  "official_target_interactions": 1235905,
+  "official_target_eval_users": 23529,
+  "K_USER": 200,
+  "TAU": 1.0,
+  "no_learned_parameters": true
+}

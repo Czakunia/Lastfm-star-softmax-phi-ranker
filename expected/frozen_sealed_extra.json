@@ -1,0 +1,23 @@
+{
+  "method": "softmax-weighted Pearson φ on UserKNN candidates C_CF",
+  "K_USER": 200,
+  "TAU": 1.0,
+  "TAU_SHARP_SUPPORTED": 0.5,
+  "no_learned_parameters": true,
+  "protocol": "TRAIN_EXTERNAL = model_train ∪ valid → sealed test.txt",
+  "n_eval_users": 23529,
+  "NDCG@20": 0.21510094169360347,
+  "Recall@20": 0.24849338337661214,
+  "MRR": 0.3071199732572307,
+  "segments": {
+    "LIGHT": 0.2493794502600424,
+    "MEDIUM": 0.20077869393768794,
+    "HEAVY": 0.1325821419221036
+  },
+  "comparators_same_extra": {
+    "HGT_stats_hardneg_5seed": 0.2015,
+    "ItemKNN_approx": 0.205,
+    "RP3beta": 0.2318
+  },
+  "note": "Follow-up ranker, not the primary HGT + stats claim. Re-run pipeline/02 to confirm τ=1. τ=0.5 is supported (--tau 0.5): Last-FM* extra NDCG@20 = 0.2185, still 2nd vs RP3β; it does not replace this frozen τ=1 file."
+}

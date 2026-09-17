@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+.mplconfig/
+.DS_Store
+verify_rerun/LIVE.txt
