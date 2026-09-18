@@ -225,7 +225,7 @@ def fig_ranking() -> None:
         ("HGT + stats (hard neg.)", 0.2015, "ours"),
         ("P3α", 0.2035, "repro"),
         ("ItemKNN", 0.2051, "repro"),
-        ("softmax-φ  τ=1", 0.2151, "phi"),
+        ("softmax-φ  τ=0.5", 0.2185, "phi"),
         ("RP3β", 0.2318, "repro"),
     ]
     names = [r[0] for r in rows]
@@ -281,10 +281,10 @@ def fig_ranking() -> None:
     ax.set_ylabel("Sealed extra  NDCG@20")
     ax.yaxis.grid(True, lw=0.4, color=GRID, zorder=0)
     ax.set_axisbelow(True)
-    ax.set_title("Last-FM* sealed extra  ·  this package in rose (τ = 1)", loc="left", fontsize=12, fontweight="bold", color=INK, pad=10)
+    ax.set_title("Last-FM* sealed extra  ·  this package in rose (τ = 0.5)", loc="left", fontsize=12, fontweight="bold", color=INK, pad=10)
 
     handles = [
-        Patch(facecolor=ROSE_DARK, edgecolor=WHITE, label="This package (softmax-φ, τ=1)"),
+        Patch(facecolor=ROSE_DARK, edgecolor=WHITE, label="This package (softmax-φ, τ=0.5)"),
         Patch(facecolor=ROSE, edgecolor=WHITE, label="HGT + stats (other package)"),
         Patch(facecolor=ROSE_LIGHT, edgecolor=WHITE, label="Reproduced classical"),
         Patch(facecolor=ROSE_LIGHT, edgecolor=ROSE, hatch="///", label="Literature (not re-run)"),

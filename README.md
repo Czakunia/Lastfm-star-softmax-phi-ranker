@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/ranking.png" alt="Sealed extra NDCG@20 ranking. Softmax-weighted phi at tau=1 is 0.2151, second to RP3beta." width="920">
+  <img src="docs/ranking.png" alt="Sealed extra NDCG@20 ranking. Softmax-weighted phi at tau=0.5 is 0.2185, second to RP3beta." width="920">
 </p>
 
 Parameter-free follow-up from the thesis. UserKNN (k=200) retrieves
