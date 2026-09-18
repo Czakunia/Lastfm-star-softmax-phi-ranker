@@ -58,25 +58,3 @@ python -u pipeline/02_evaluate_softmax_weighted_phi_ranker_on_sealed_extra.py --
 | 2 | `pipeline/02_evaluate_softmax_weighted_phi_ranker_on_sealed_extra.py` | UserKNN → φ → softmax scores on sealed extra. Writes `verify_rerun/sealed_metrics.json`. |
 
 Each file's docstring is the specification (formulas, gates, outputs).
-
-## What the score is
-
-For candidate X and history H_u:
-
-```
-s(u, X) = sum_{h in H_u}  α_h φ(h, X)
-α       = softmax(φ(·, X) / τ)
-```
-
-Frozen extra uses τ = 1. τ = 0.5 is allowed in code (`TAU_SHARP` / `--tau 0.5`): sharper weights on the strongest history–candidate φ. On Last-FM* extra it stays 2nd vs RP3β.
-
-φ is Pearson's coefficient on the 2×2 listen/not-listen table of TRAIN_EXTERNAL users (same algebra as HCR a_11). Items not in the UserKNN candidate set stay at −∞.
-
-## Frozen result
-
-See `expected/frozen_sealed_extra.json` (τ=1). After a re-run, compare
-`verify_rerun/sealed_metrics.json` — `|Δ|` vs 0.215101 should be ~0
-(same splits, no RNG).
-
-`--tau 0.5` is the supported sharper extra (0.2185). It is not the
-frozen default.
