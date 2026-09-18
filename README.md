@@ -61,20 +61,22 @@ Each file's docstring is the specification (formulas, gates, outputs).
 
 ## What the score is
 
-For candidate \(X\) and history \(H_u\):
+Take a listener `u` and an unseen artist `X`. Look at every artist `h`
+already in that listener's history. For each pair `(h, X)` compute
+Pearson phi: how much those two artists co-occur across TRAIN_EXTERNAL
+users (listen vs not-listen, same 2×2 table as HCR `a_11`).
 
-\[
-s(u,X)=\sum_{h\in H_u}\alpha_h\,\phi(h,X),\qquad
-\alpha=\mathrm{softmax}(\phi(\cdot,X)/\tau).
-\]
+Those phi values become softmax weights. The score of `X` is the
+weighted sum of phi against the history. Temperature `tau` controls how
+peaky the weights are.
 
-Frozen extra uses \(\tau=1\). \(\tau=0.5\) is allowed in code
-(``TAU_SHARP`` / ``--tau 0.5``): sharper weights on the strongest
-history–candidate \(\phi\). On Last-FM* extra it stays 2nd vs RP3β.
+The published extra uses `tau = 1` (NDCG@20 = 0.2151). In the code you
+can pass `--tau 0.5` (`TAU_SHARP`): more weight on the strongest
+history–candidate links. On Last-FM* extra that is 0.2185 and still
+second to RP3β. It does not replace the frozen `tau = 1` number.
 
-\(\phi\) is Pearson's coefficient on the 2×2 listen/not-listen table of
-TRAIN_EXTERNAL users (same algebra as HCR \(a_{11}\)). Items not in the
-UserKNN candidate set stay at \(-\infty\).
+Artists that UserKNN never retrieved are not scored; they stay at the
+bottom of the list.
 
 ## Frozen result
 
